@@ -5,7 +5,6 @@
 -- 1. sqldb에 존재하는 모든 테이블의 리스트를 출력하시오.
 show table status;
 -- 2. emp 테이블과 dept 테이블의 구조를 출력하시오.
-select * from emp, dept;
 -- 3. 사원(emp)테이블에서 모든 데이터를 출력하시오.
 select * from emp;
 -- 4. 사원테이블에서 사원번호, 사원이름, 월급을 출력하시오.
@@ -41,7 +40,6 @@ select * from emp order by sal desc;
 select ename, HIREDATE from emp order by HIREDATE desc;
 -- 15. 사원 테이블에서 30번 부서에 근무하는 직원들의 이름과 입사년월일을 출력하는데
 -- 입사한지 오래된 순으로 출력하시오.
-select ename, hiredate from emp where deptno = 30 order by hiredate;
 -- 16. 이름에 'A' 가 들어간 직원들의 이름과 입사년월일을  출력하시오.
 select ename, hiredate from emp where ename like '%A%';
 -- 17. 이름이 'S' 로 끝나는 직원들의 이름과 직무를  출력하시오.
