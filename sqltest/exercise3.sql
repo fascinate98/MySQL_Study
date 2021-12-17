@@ -35,7 +35,8 @@ select count(*) from emp;
 -- 	---------------------------------------
 -- 	 6명                    		 13명
 
-select concat(count(comm), "명") as "커미션이 정해진 직원수", concat(count(deptno), "명") as "부서가 정해진 직원수" 
+select concat(count(comm), "명") as "커미션이 정해진 직원수"
+, concat(count(deptno), "명") as "부서가 정해진 직원수" 
 from emp;
 
 -- 6. 각 직무별로 총월급을 출력하되 총월급이 낮은 순으로 출력하시오.
@@ -49,7 +50,7 @@ from emp;
 select  job as '직무명', sum(sal) as '총월급'
 from emp
 group by job
-order by sum(sal);
+order by sum(sal);  -- '총월급'  < 이러케 써도댐 
 
 -- 7. 각 부서에서 근무하는 직원들의 명수를 알고싶다. 다음 형식으로 출력하는 SQL
 --    을 작성하시오 .
@@ -61,7 +62,8 @@ order by sum(sal);
 -- 	20번 부서     4명
 -- 	30번 부서     6명
 
-select ifnull(concat(deptno, "번 부서"), '미정') as '부서정보' , concat(count(*) , '명') as '직원명수'
+select ifnull(concat(deptno, "번 부서"), '미정') as '부서정보' 
+, concat(count(*) , '명') as '직원명수'
 from emp
 group by deptno;
 
@@ -75,7 +77,8 @@ group by deptno;
 -- 	1980년	   1명
 -- 	1983년	   1명
 
-select concat(year(hiredate), '년') as '입사년도', concat(count(*) , '명') as '입사직원수'
+select concat(year(hiredate), '년') as '입사년도'
+, concat(count(*) , '명') as '입사직원수'
 from emp
 group by year(hiredate)
 order by count(*) desc; 
@@ -91,7 +94,7 @@ order by count(*) desc;
 -- 	SALESMAN          	5,600
 -- 	 ANAYST	  	6,000
 
-select job as '직급명' , sum(sal)
+select job as '직급명' , sum(sal) as 총액
 from emp 
 group by job
 having sum(sal) > 5000 and job != 'manager';
