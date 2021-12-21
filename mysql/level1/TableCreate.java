@@ -19,17 +19,17 @@ public class TableCreate {
      Statement stmt = null;
 
      try {
-        String url = "jdbc:mysql://localhost:3306/sqldb?characterEncoding=UTF-8&serverTimezone=UTC";
+        String url = "jdbc:mysql://localhost:3306/jdbcdb?characterEncoding=UTF-8&serverTimezone=UTC";
         String user = "root";
         String passwd = "1234";
 
         conn = DriverManager.getConnection(url, user, passwd);
         System.out.println("데이터베이스에 접속했습니다.");
         stmt = conn.createStatement();
-        stmt.executeUpdate("create table studetn (name varchar(10), score int");
-        System.out.println("데이터베이스에 접속했습니다.");
+        stmt.executeUpdate("create table student (name varchar(10), score int)"); 
+         //select문이면 excuteQuary 일때 리턴값 retuernset, 아니면 excuteUpdate 리턴값 정수 변화된 행의 갯수 얘는 테이블이라 0 
         System.out.println("student 테이블 생성");
-        
+
      }catch(SQLException se1) {
         System.out.println(se1.getMessage());
      }finally {
