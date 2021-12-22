@@ -109,9 +109,9 @@ having sum(sal) > 5000 and job != 'manager';
 -- 	             MANAGER	    2850.00
 -- 	              CLERK		    950.00
 
-select job as '직무' , round(avg(sal + comm), 2)
+select job as '직무' , truncate(avg(sal), -2)
 from emp
-where sal + comm is not null
+where sal + comm is not null and deptno = 30
 group by job; 
 
 
