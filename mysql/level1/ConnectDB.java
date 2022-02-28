@@ -13,11 +13,16 @@ public class ConnectDB {
             String user = "root";
             String passwd = "1234";
             Connection conn = DriverManager.getConnection(url, user, passwd);
-            conn.close();
-            System.out.println("MYSQL 연결 성공");
-         } catch (Exception e) {
-            System.out.println("MYSQL 연결 실패");
-            System.out.print("사유 : " + e.getMessage());
+          
+            System.out.println("MYSQL �뿰寃� �꽦怨�");
+         } catch (ClassNotFoundException e) {
+            System.out.println("MYSQL �뿰寃� �떎�뙣");
+            System.out.print("�궗�쑀 : " + e.getMessage());
+      }finally {
+    	  try {
+    		  conn.close();
+    	  }
+    	  
       }
    }
 
